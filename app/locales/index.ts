@@ -23,7 +23,21 @@ export type { LocaleType, PartialLocaleType } from "./cn";
 const ALL_LANGS = {
   cn,
   en,
+  tw,
+  jp,
+  ko,
   id,
+  fr,
+  es,
+  it,
+  tr,
+  de,
+  vi,
+  ru,
+  cs,
+  no,
+  ar,
+  bn,
 };
 
 export type Lang = keyof typeof ALL_LANGS;
