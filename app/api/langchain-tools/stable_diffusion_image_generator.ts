@@ -51,6 +51,7 @@ export class StableDiffusionWrapper extends Tool {
       body: JSON.stringify(data),
     });
     const json = await response.json();
+    console.log("[SD]", json);
     //let imageBase64 = json.output[0].url;
     let image_url = json.output[0];
     //if (!imageBase64) return "No image was generated";
