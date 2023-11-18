@@ -19,6 +19,7 @@ export class StableDiffusionWrapper extends Tool {
   async _call(prompt: string) {
     let url = process.env.STABLE_DIFFUSION_API_URL;
     const data = {
+      key: process.env.STABLE_DIFFUSION_API_KEY,
       model_id: process.env.STABLE_DIFFUSION_MODEL,
       prompt: prompt,
       negative_prompt:
@@ -46,7 +47,6 @@ export class StableDiffusionWrapper extends Tool {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "key": 'process.env.STABLE_DIFFUSION_API_KEY',
       },
       body: JSON.stringify(data),
     });
