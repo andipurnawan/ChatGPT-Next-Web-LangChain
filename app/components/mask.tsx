@@ -455,22 +455,6 @@ export function MaskPage() {
           <div className="window-actions">
             <div className="window-action-button">
               <IconButton
-                icon={<DownloadIcon />}
-                bordered
-                onClick={downloadAll}
-                text={Locale.UI.Export}
-              />
-            </div>
-            <div className="window-action-button">
-              <IconButton
-                icon={<UploadIcon />}
-                text={Locale.UI.Import}
-                bordered
-                onClick={() => importFromFile()}
-              />
-            </div>
-            <div className="window-action-button">
-              <IconButton
                 icon={<CloseIcon />}
                 bordered
                 onClick={() => navigate(-1)}
