@@ -12,25 +12,31 @@ export class StableDiffusionWrapper extends Tool {
   async _call(prompt: string) {
     let url = process.env.STABLE_DIFFUSION_API_URL;
     const data = {
+      model_id: process.env.STABLE_DIFFUSION_MODEL,
+      key: process.env.STABLE_DIFFUSION_API_KEY,
       prompt: prompt,
       negative_prompt:
         process.env.STABLE_DIFFUSION_NEGATIVE_PROMPT ??
         "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
-      seed: -1,
-      subseed: -1,
-      subseed_strength: 0,
-      batch_size: 1,
-      n_iter: 1,
-      steps: process.env.STABLE_DIFFUSION_STEPS ?? 20,
-      cfg_scale: process.env.STABLE_DIFFUSION_CFG_SCALE ?? 7,
       width: process.env.STABLE_DIFFUSION_WIDTH ?? 720,
       height: process.env.STABLE_DIFFUSION_HEIGHT ?? 720,
-      restore_faces: process.env.STABLE_DIFFUSION_RESTORE_FACES ?? false,
-      eta: 0,
-      sampler_index: process.env.STABLE_DIFFUSION_SAMPLER_INDEX ?? "Euler a",
+      samples: 1,
+      num_inference_steps: process.env.STABLE_DIFFUSION_STEPS ?? 20,
+      safety_checker: "no",
+      enhance_prompt: "yes",
+      seed: "None",
+      guidance_scale: process.env.STABLE_DIFFUSION_CFG_SCALE ?? 7,
+      multi_lingual: "no",
+      panorama: "no",
+      self_attention: "no",
+      upscale: "no",
+      embeddings: "embeddings_model_id",
+      lora: "lora_model_id",
+      webhook: "None",
+      track_id: "None",
     };
     console.log(`[${this.name}]`, data);
-    const response = await fetch(`${url}/sdapi/v1/txt2img`, {
+    const response = await fetch(`${url}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
