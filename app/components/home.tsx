@@ -143,7 +143,7 @@ function Screen() {
       className={
         styles.container +
         ` ${shouldTightBorder ? styles["tight-container"] : styles.container} ${
-          getLang() === "en" ? styles["rtl-screen"] : ""
+          
         }`
       }
     >
