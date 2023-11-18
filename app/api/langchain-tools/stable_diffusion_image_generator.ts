@@ -44,7 +44,7 @@ export class StableDiffusionWrapper extends Tool {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    let imageBase64 = json.images[0];
+    let imageBase64 = json.output[0];
     if (!imageBase64) return "No image was generated";
     const buffer = Buffer.from(imageBase64, "base64");
     const filePath = await S3FileStorage.put(`${Date.now()}.png`, buffer);
