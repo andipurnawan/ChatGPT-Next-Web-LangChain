@@ -8,6 +8,13 @@ export class StableDiffusionWrapper extends Tool {
     super();
   }
 
+  async saveImageFromUrl(url: string) {
+    const response = await fetch(url);
+    const content = await response.arrayBuffer();
+    const buffer = Buffer.from(content);
+    return await S3FileStorage.put(`${Date.now()}.png`, buffer);
+  }
+
   /** @ignore */
   async _call(prompt: string) {
     let url = process.env.STABLE_DIFFUSION_API_URL;
@@ -44,12 +51,16 @@ export class StableDiffusionWrapper extends Tool {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    let imageBase64 = json.output[0];
-    if (!imageBase64) return "No image was generated";
-    const buffer = Buffer.from(imageBase64, "base64");
-    const filePath = await S3FileStorage.put(`${Date.now()}.png`, buffer);
-    console.log(`[${this.name}]`, filePath);
-    return filePath;
+    let image_url = json.output[0].url;
+    if (!image_url) return "No image was generated";
+    try {
+      let filePath = await this.saveImageFromUrl(image_url);
+      console.log("[DALL-E]", filePath);
+      var imageMarkdown = `![img](${filePath})`;
+      return imageMarkdown;
+    } catch (e) {
+      return "Image upload to R2 storage failed";
+    }
   }
 
   description = `stable diffusion is an ai art generation model similar to dalle-2.
