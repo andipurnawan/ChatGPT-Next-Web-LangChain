@@ -9,6 +9,7 @@ export type { LocaleType, PartialLocaleType } from "./cn";
 const ALL_LANGS = {
   en,
   id,
+  cn,
 };
 
 export type Lang = keyof typeof ALL_LANGS;

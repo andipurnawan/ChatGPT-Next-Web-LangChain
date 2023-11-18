@@ -12,14 +12,4 @@ export const EN_PLUGINS: BuiltinPlugin[] = [
     createdAt: 1694703673000,
     enable: false,
   },
-  {
-    name: "Stable Diffusion",
-    toolName: "stable_diffusion_image_generator",
-    lang: "en",
-    description:
-      "Stable Diffusion text-to-image model.",
-    builtin: true,
-    createdAt: 1688899480510,
-    enable: false,
-  },
 ];
