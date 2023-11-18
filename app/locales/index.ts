@@ -19,6 +19,7 @@ export const AllLangs = Object.keys(ALL_LANGS) as Lang[];
 export const ALL_LANG_OPTIONS: Record<Lang, string> = {
   en: "English",
   id: "Indonesia",
+  cn: "简体中文",
 };
 
 const LANG_KEY = "lang";
