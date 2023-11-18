@@ -14,13 +14,12 @@ export class StableDiffusionWrapper extends Tool {
     const buffer = Buffer.from(content);
     return await S3FileStorage.put(`${Date.now()}.png`, buffer);
   }
-  
+
   /** @ignore */
   async _call(prompt: string) {
     let url = process.env.STABLE_DIFFUSION_API_URL;
     const data = {
       model_id: process.env.STABLE_DIFFUSION_MODEL,
-      key: process.env.STABLE_DIFFUSION_API_KEY,
       prompt: prompt,
       negative_prompt:
         process.env.STABLE_DIFFUSION_NEGATIVE_PROMPT ??
@@ -47,12 +46,13 @@ export class StableDiffusionWrapper extends Tool {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "key": process.env.STABLE_DIFFUSION_API_KEY,
       },
       body: JSON.stringify(data),
     });
     const json = await response.json();
     //let imageBase64 = json.output[0].url;
-    let image_url = json.output[0].url;
+    let image_url = json.output[0];
     //if (!imageBase64) return "No image was generated";
     if (!image_url) return "No image was generated";
     try {
