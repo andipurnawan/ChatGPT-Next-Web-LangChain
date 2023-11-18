@@ -46,7 +46,7 @@ export class StableDiffusionWrapper extends Tool {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "key": process.env.STABLE_DIFFUSION_API_KEY,
+        "key": 'process.env.STABLE_DIFFUSION_API_KEY',
       },
       body: JSON.stringify(data),
     });
