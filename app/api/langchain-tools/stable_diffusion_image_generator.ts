@@ -36,7 +36,7 @@ export class StableDiffusionWrapper extends Tool {
       track_id: "None",
     };
     console.log(`[${this.name}]`, data);
-    const response = await fetch(`${url}`, {
+    const response = await fetch(`${url}/api/v3/text2img`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export class StableDiffusionWrapper extends Tool {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    let imageBase64 = json.output[0];
+    let imageBase64 = json.output[0].url;
     if (!imageBase64) return "No image was generated";
     const buffer = Buffer.from(imageBase64, "base64");
     const filePath = await S3FileStorage.put(`${Date.now()}.png`, buffer);
