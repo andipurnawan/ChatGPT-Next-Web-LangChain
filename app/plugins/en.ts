@@ -2,7 +2,7 @@ import { BuiltinPlugin } from "./typing";
 
 export const EN_PLUGINS: BuiltinPlugin[] = [
   {
-    name: "[Experiment] Google Search",
+    name: "[WIP] Google Search",
     toolName: "web-search",
     lang: "en",
     description: "Web search function tool for search engines.",
@@ -21,7 +21,7 @@ export const EN_PLUGINS: BuiltinPlugin[] = [
     enable: false,
   },
   {
-    name: "Stable Diffusion",
+    name: "[WIP] Stable Diffusion",
     toolName: "stable_diffusion_image_generator",
     lang: "en",
     description:
