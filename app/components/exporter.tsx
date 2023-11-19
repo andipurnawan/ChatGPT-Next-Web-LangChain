@@ -517,7 +517,7 @@ export function ImagePreviewer(props: {
           <div>
             <div className={styles["main-title"]}>SKAI GPT</div>
             <div className={styles["sub-title"]}>
-              powered by AI.
+              Powered by AI.
             </div>
             <div className={styles["icons"]}>
               <ExportAvatar avatar={config.avatar} />
