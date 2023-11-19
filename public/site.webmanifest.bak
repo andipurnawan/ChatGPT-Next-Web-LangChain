@@ -1,6 +1,6 @@
 {
-    "name": "SKAI GPT V2.0",
-    "short_name": "SKAIGPT",
+    "name": "ChatGPT Next Web",
+    "short_name": "ChatGPT",
     "icons": [
       {
         "src": "/android-chrome-192x192.png",
