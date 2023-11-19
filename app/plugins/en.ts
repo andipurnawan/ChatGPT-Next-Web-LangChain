@@ -8,7 +8,7 @@ export const EN_PLUGINS: BuiltinPlugin[] = [
     description: "Web search function tool for search engines.",
     builtin: true,
     createdAt: 1693744292000,
-    enable: true,
+    enable: false,
   },
   {
     name: "DALL·E",
@@ -18,7 +18,7 @@ export const EN_PLUGINS: BuiltinPlugin[] = [
       "DALL·E is an AI system that can create realistic images and art from a description in natural language.",
     builtin: true,
     createdAt: 1694703673000,
-    enable: false,
+    enable: true,
   },
   {
     name: "[WIP] Stable Diffusion",
