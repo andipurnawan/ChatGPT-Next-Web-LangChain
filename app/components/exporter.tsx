@@ -370,13 +370,6 @@ export function PreviewActions(props: {
           icon={<DownloadIcon />}
           onClick={props.download}
         ></IconButton>
-        <IconButton
-          text={Locale.Export.Share}
-          bordered
-          shadow
-          icon={loading ? <LoadingIcon /> : <ShareIcon />}
-          onClick={share}
-        ></IconButton>
       </div>
       <div
         style={{
@@ -520,19 +513,11 @@ export function ImagePreviewer(props: {
         ref={previewRef}
       >
         <div className={styles["chat-info"]}>
-          <div className={styles["logo"] + " no-dark"}>
-            <NextImage
-              src={ChatGptIcon.src}
-              alt="logo"
-              width={50}
-              height={50}
-            />
-          </div>
 
           <div>
-            <div className={styles["main-title"]}>ChatGPT Next Web</div>
+            <div className={styles["main-title"]}>SKAI GPT</div>
             <div className={styles["sub-title"]}>
-              github.com/Yidadaa/ChatGPT-Next-Web
+              powered by AI.
             </div>
             <div className={styles["icons"]}>
               <ExportAvatar avatar={config.avatar} />
